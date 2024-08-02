@@ -7,7 +7,10 @@ extends Node2D
 @onready var aseprite_location : TextEdit = $Control/AsepriteLocation
 @onready var output_location : TextEdit = $Control/outputpath
 @onready var filename : TextEdit = $Control/Filename
+@onready var column_count : TextEdit = $Control/ColumnCount
 
+var regex = RegEx.new()
+var oldcolumncounttext = ""
 var _selected_item : int
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +19,8 @@ func _ready():
 	exe_selector.file_selected.connect(exe_selected)
 	sprite_file_selector.files_selected.connect(sprites_selected)
 	output_directory_selector.dir_selected.connect(output_selected)
+	
+	regex.compile("^[0-9]*$")
 	pass # Replace with function body.
 
 
@@ -112,7 +117,7 @@ func _on_generate_button_pressed():
 		sprites, " ",
 		"--sheet ",
 		str(output_location.text, "\\", filename.text, ".png"), " ",
-		"-sheet-pack" 	
+		str("--sheet-columns ", column_count.text, " ")
 	))
 	bat_file.close()
 	
@@ -123,3 +128,12 @@ func _on_generate_button_pressed():
 	
 func _quote_text( text : String ) -> String:
 	return str("\"", text, "\"") 
+
+
+func _on_column_count_text_changed() -> void:
+	if regex.search(column_count.text):
+		oldcolumncounttext = column_count.text  
+	else:
+		column_count.text  = oldcolumncounttext
+	column_count.set_caret_column(column_count.text.length())
+	pass # Replace with function body.

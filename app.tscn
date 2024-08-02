@@ -25,6 +25,17 @@ Location"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AsepriteExeLabel2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 117.0
+offset_right = 967.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 14
+text = "Column Count"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="OutputFolderLabel" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 32.0
@@ -152,6 +163,13 @@ offset_bottom = 618.0
 text = "Generate Packed Sprite Sheet"
 icon_alignment = 1
 
+[node name="ColumnCount" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_left = 971.0
+offset_top = 117.0
+offset_right = 1071.0
+offset_bottom = 161.0
+
 [node name="exe_selector" type="FileDialog" parent="."]
 size = Vector2i(392, 159)
 use_native_dialog = true
@@ -171,3 +189,4 @@ use_native_dialog = true
 [connection signal="pressed" from="Control/Find Sprites" to="." method="_on_sprite_button_pressed"]
 [connection signal="pressed" from="Control/outputPathButton" to="." method="_on_output_path_button_pressed"]
 [connection signal="pressed" from="Control/GenerateButton" to="." method="_on_generate_button_pressed"]
+[connection signal="text_changed" from="Control/ColumnCount" to="." method="_on_column_count_text_changed"]
