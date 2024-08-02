@@ -1,5 +1,3 @@
-### MAIN GAME
-
 # Godot 4+ specific ignores
 .godot/
 
@@ -15,21 +13,3 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
-
-### TOOLS
-
-# Godot 4+ specific ignores
-Tools/SpritesheetPacker/.godot/
-
-# Godot-specific ignores
-Tools/SpritesheetPacker/.import/
-Tools/SpritesheetPacker/export.cfg
-Tools/SpritesheetPacker/export_presets.cfg
-
-# Imported translations (automatically generated from CSV files)
-Tools/SpritesheetPacker/*.translation
-
-# Mono-specific ignores
-Tools/SpritesheetPacker/.mono/
-Tools/SpritesheetPacker/data_*/
-Tools/SpritesheetPacker/mono_crash.*.json
