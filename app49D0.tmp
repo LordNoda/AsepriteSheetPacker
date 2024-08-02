@@ -1,0 +1,158 @@
+[gd_scene load_steps=2 format=3 uid="uid://3fxfjajfplk3"]
+
+[ext_resource type="Script" path="res://app.gd" id="1_4d0qo"]
+
+[node name="App" type="Node2D"]
+script = ExtResource("1_4d0qo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AsepriteExeLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 30.0
+offset_right = 135.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 10
+text = "Aseprite .exe
+Location"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OutputFolderLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 475.0
+offset_right = 155.0
+offset_bottom = 515.0
+theme_override_font_sizes/font_size = 10
+text = "Output Folder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FileNameLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 532.0
+offset_right = 155.0
+offset_bottom = 572.0
+theme_override_font_sizes/font_size = 10
+text = "File Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AsepriteLocation" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 26.0
+offset_right = 461.0
+offset_bottom = 72.0
+
+[node name="AspriteButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 31.0
+offset_right = 514.0
+offset_bottom = 68.0
+text = "Find Aseprite .exe"
+icon_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="Control"]
+offset_left = 57.0
+offset_top = 115.0
+offset_right = 847.0
+offset_bottom = 455.0
+allow_reselect = true
+allow_rmb_select = true
+
+[node name="Up" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 79.0
+offset_right = 111.0
+offset_bottom = 110.0
+text = "Up"
+
+[node name="Down" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 79.0
+offset_right = 169.0
+offset_bottom = 110.0
+text = "Down
+"
+
+[node name="Delete" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 79.0
+offset_right = 235.0
+offset_bottom = 110.0
+text = "Delete
+"
+
+[node name="Find Sprites" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 79.0
+offset_right = 340.0
+offset_bottom = 110.0
+text = "Find Sprites
+"
+
+[node name="outputpath" type="TextEdit" parent="Control"]
+offset_left = 142.0
+offset_top = 472.0
+offset_right = 468.0
+offset_bottom = 518.0
+
+[node name="outputPathButton" type="Button" parent="Control"]
+offset_left = 478.0
+offset_top = 475.0
+offset_right = 596.0
+offset_bottom = 512.0
+text = "Find Directory
+"
+icon_alignment = 1
+
+[node name="Filename" type="TextEdit" parent="Control"]
+offset_left = 143.0
+offset_top = 530.0
+offset_right = 469.0
+offset_bottom = 576.0
+text = "Output"
+
+[node name="GenerateButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 606.0
+offset_top = 475.0
+offset_right = 844.0
+offset_bottom = 512.0
+text = "Generate Packed Sprite Sheet"
+icon_alignment = 1
+
+[node name="exe_selector" type="FileDialog" parent="."]
+size = Vector2i(392, 159)
+use_native_dialog = true
+
+[node name="output_directory_selector" type="FileDialog" parent="."]
+size = Vector2i(392, 159)
+use_native_dialog = true
+
+[node name="sprite_file_selector" type="FileDialog" parent="."]
+size = Vector2i(392, 159)
+use_native_dialog = true
+
+[connection signal="pressed" from="Control/AspriteButton" to="." method="_on_asprite_button_pressed"]
+[connection signal="pressed" from="Control/Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="Control/Down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="Control/Delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="Control/Find Sprites" to="." method="_on_sprite_button_pressed"]
+[connection signal="pressed" from="Control/outputPathButton" to="." method="_on_output_path_button_pressed"]
+[connection signal="pressed" from="Control/GenerateButton" to="." method="_on_generate_button_pressed"]
